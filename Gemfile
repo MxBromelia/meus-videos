@@ -59,6 +59,9 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'shoulda-matchers', '~> 5.0'
 
+  # A library for generating fake data such as names, addresses, and phone numbers. 
+  gem 'faker', require: false
+
   # Keep your Selenium WebDrivers updated automatically 
   gem 'webdrivers', '~> 4.0', require: false
 
