@@ -1,0 +1,19 @@
+'pt-br':
+  activerecord:
+    models:
+      category:
+        one: Categoria
+        other: Categorias
+    attributes:
+      category:
+        name: Título
+        description: Descrição
+  messages:
+    models:
+      category:
+        created: Categoria Adicionada com Sucesso
+        updated: Categoria Atualizada com Sucesso
+  helpers:
+    submit:
+      create: "Cadastrar"
+      update: "Atualizar"

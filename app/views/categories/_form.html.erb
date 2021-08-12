@@ -1,0 +1,19 @@
+<% if @category.errors.any? %>
+    <div class=alert>
+        <p><%= @category.errors.count %> Erros Encontrados:</p>
+        <ul>
+        <% @category.errors.full_messages.each do |error| %>]
+            <li><%=error%></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+<%= form_for @category do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+
+    <%= form.submit %>
+<% end %>

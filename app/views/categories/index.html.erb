@@ -1,0 +1,21 @@
+<% if notice %>
+<div class='notice' %>
+  <p><%= notice %></p>
+</div>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th><%= @categories.model.human_attribute_name :name %></th>
+      <th><%= @categories.model.human_attribute_name :description %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+    <tr>
+      <td><%=category.name%></td>
+      <td><%=category.description%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
