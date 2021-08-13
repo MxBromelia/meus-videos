@@ -12,8 +12,8 @@ RSpec.describe "Listing Categories", type: :feature do
       expect(page).to have_content("Favoritado")
     end
 
-    scenario "Unbookmarked Categories Do Not Show in Index" do
-      expect(page).to_not have_content("Não Favoritado")
+    scenario "Unbookmarked Categories Show in Index" do
+      expect(page).to have_content("Não Favoritado")
     end
   end
 end

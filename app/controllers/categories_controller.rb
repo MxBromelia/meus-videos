@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: %i[edit update destroy bookmark]
+  before_action :set_category, only: %i[show edit update destroy show bookmark]
   def index
-    @categories = Category.bookmarked
+    @categories = Category.all
   end
 
   def new

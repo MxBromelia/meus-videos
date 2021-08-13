@@ -6,7 +6,7 @@ RSpec.describe "Categories", type: :request do
 
   describe "GET /index" do
     it "returns http success" do
-      get "/categories/index"
+      get "/categories/"
       expect(response).to have_http_status(:success)
     end
   end
@@ -20,7 +20,7 @@ RSpec.describe "Categories", type: :request do
 
   describe "GET /edit" do
     it "returns http success" do
-      get "/categories/edit"
+      get "/categories/#{id}/edit"
       expect(response).to have_http_status(:success)
     end
   end

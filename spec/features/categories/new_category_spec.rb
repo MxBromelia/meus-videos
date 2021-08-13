@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "Adicionar Categoria", type: :feature do
+RSpec.describe "Adding a new Category", type: :feature do
   feature "Adding a new Category" do
     background do
-      visit 'categories/new'
+      visit 'categories'
+      click_link "Adicionar Categoria"
     end
 
     scenario "Successfully adding a Category" do
