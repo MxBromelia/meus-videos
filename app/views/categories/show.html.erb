@@ -3,7 +3,7 @@
   <p><%= notice %></p>
 </div>
 <% end %>
-<h1><%=@category.name %></h1>
+<h1><%=@category.name.capitalize %></h1>
 <ul>
 <% if @category.videos.any? %>
     <% @category.videos.each do |video| %>
@@ -13,5 +13,6 @@
     Não há videos nesta Categoria
 <% end %>
 </ul>
-<%= link_to "Adicionar Vídeo", new_category_video_path(@category.id), data: {behavior: 'add-video'} %>
-<%= link_to "Editar", edit_category_path(@category) %>
+<%= link_to "Adicionar Vídeo", new_category_video_path(@category.id), class: 'btn btn-primary', data: {behavior: 'add-video'} %>
+<%= link_to "Editar", edit_category_path(@category), class: 'btn btn-info' %>
+ <%= button_tag "Voltar", type: 'button', class: 'btn btn-secondary', data: {behavior: :back} %>

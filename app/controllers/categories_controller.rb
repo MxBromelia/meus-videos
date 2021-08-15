@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.create(params_category)
     unless @category.errors.any?
-      redirect_to categories_path, notice: I18n.t('messages.models.category.created')
+      redirect_to category_path(@category), notice: I18n.t('messages.models.category.created')
     else
       render :new
     end
@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(params_category)
-      redirect_to categories_path, notice: I18n.t('messages.models.category.updated')
+      redirect_to category_path, notice: I18n.t('messages.models.category.updated')
     else
       render :edit
     end

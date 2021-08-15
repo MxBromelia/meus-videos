@@ -1,5 +1,5 @@
 <% if @video.errors.any? %>
-    <div class=alert>
+    <div class='alert alert-danger'>
         <p><%= @video.errors.count %> Erros Encontrados:</p>
         <ul>
         <% @video.errors.full_messages.each do |error| %>
@@ -9,11 +9,18 @@
     </div>
 <% end %>
 <%= form_for [@category, @video] do |form| %>
-    <%= form.label :url %>
-    <%= form.text_field :url %>
+    <div class='mb-3 form-group'>
+        <%= form.label :url, class: 'form-label'%>
+        <%= form.text_field :url, class: 'form-control' %>
+    </div>
 
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <div class='mb-3 form-group'>
+        <%= form.label :title, class: 'form-label' %>
+        <%= form.text_field :title, class: 'form-control'%>
+    </div>
 
-    <%= form.submit %>
+    <div class='float-end'>
+        <%= form.submit class: 'btn btn-primary' %>
+        <%= button_tag "Voltar", type: 'button', class: 'btn btn-secondary', data: {behavior: :back} %>
+    </div>
 <% end %>

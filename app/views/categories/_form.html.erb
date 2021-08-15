@@ -2,18 +2,25 @@
     <div class=alert>
         <p><%= @category.errors.count %> Erros Encontrados:</p>
         <ul>
-        <% @category.errors.full_messages.each do |error| %>]
+        <% @category.errors.full_messages.each do |error| %>
             <li><%=error%></li>
         <% end %>
         </ul>
     </div>
 <% end %>
 <%= form_for @category do |form| %>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <div class='mb-3 form-group'>
+        <%= form.label :name, class: 'form-label' %>
+        <%= form.text_field :name, class: 'form-control' %>
+    </div>
 
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+    <div class='mb-3 form-group'>
+        <%= form.label :description, class: 'form-label' %>
+        <%= form.text_field :description, class: 'form-control' %>
+    </div>
 
-    <%= form.submit %>
+    <div class='float-end'>
+        <%= form.submit class: 'btn btn-primary' %>
+        <%= button_tag "Voltar", type: 'button', class: 'btn btn-secondary', data: {behavior: :back} %>
+    </div>
 <% end %>

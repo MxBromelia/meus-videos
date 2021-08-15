@@ -1,0 +1,13 @@
+header {
+    background: #6A48D7;
+    padding: 5px 0px;
+}
+
+section {
+    background: rgb(233, 233, 185);
+    min-height: 500px;
+}
+
+body {
+    background: #9480d4;
+}

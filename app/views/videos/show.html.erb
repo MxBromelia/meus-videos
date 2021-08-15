@@ -1,14 +1,21 @@
 <% if notice %>
-<div class='notice' %>
-  <p><%= notice %></p>
+<div class="mb-3 alert alert-success alert-dismissible fade show" role="alert">
+  <%= notice %>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 <% end %>
-<iframe
+<div class='d-flex justify-items-center'>
+  <iframe
     width="560"
     height="315"
     src="<%= @video.embed_url %>"
     title="YouTube video player"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-</iframe>
+    allowfullscreen
+    style="display:block">
+  </iframe>
+</div>
+
+<div class='float-end'>
+   <%= button_tag "Voltar", type: 'button', class: 'btn btn-secondary', data: {behavior: :back} %>
