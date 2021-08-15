@@ -1,6 +1,6 @@
 header {
     background: #6A48D7;
-    padding: 5px 0px;
+    padding: 5px 10px;
 }
 
 section {
@@ -10,4 +10,17 @@ section {
 
 body {
     background: #9480d4;
+}
+
+iframe {
+    margin: 10px;
+}
+
+.comments {
+    border: solid 1px black;
+}
+
+.comment {
+    border: solid 1px black;
+    margin: 5px 5px 10px 15px;
 }

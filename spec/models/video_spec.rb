@@ -8,6 +8,7 @@ RSpec.describe Video, type: :model do
   it { is_expected.to allow_value("https://www.youtube.com/watch?v=dQw4w9WgXcQ").for(:url) }
   it { is_expected.to_not allow_value("not a valid url").for(:url) }
   it { is_expected.to belong_to(:category) }
+  it { is_expected.to have_many :comments }
 
   context "Video ID" do
     subject { create :video, url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" }

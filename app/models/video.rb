@@ -1,5 +1,6 @@
 class Video < ApplicationRecord
   belongs_to :category
+  has_many :comments, dependent: :destroy
 
   validates_presence_of :title, :url
   validates_format_of :url, with: URI.regexp

@@ -9,10 +9,10 @@ FactoryBot.define do
     end
 
     after(:create) do |category, evaluator|
-    return if category.videos.any?
+      return if category.videos.any?
 
-    create_list :video, evaluator.videos_count, category: category
-    category.reload
+      create_list :video, evaluator.videos_count, category: category
+      category.reload
     end
   end
 end

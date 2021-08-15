@@ -5,8 +5,16 @@ FactoryBot.define do
 
     transient do
       video_id { Faker::Lorem.characters(number: 6) }
+      comments_count { 1 }
     end
 
     association :category
+
+    after(:create) do |video, evaluator|
+      return if video.comments.any?
+
+      create_list :comment, evaluator.comments_count, video: video
+      video.reload
+    end
   end
 end

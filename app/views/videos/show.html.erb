@@ -17,5 +17,17 @@
   </iframe>
 </div>
 
+<% if @video.comments.any? %>
+  <h2>Comentários</h2>
+  <div class='comments'>
+  <% @video.comments.each do |comment| %>
+    <div class='comment'><%= comment.message %></div>
+  <% end %>
+  </div>
+<% else %>
+  <p>Este vídeo não possui comentários</p>
+<% end %>
+
 <div class='float-end'>
    <%= button_tag "Voltar", type: 'button', class: 'btn btn-secondary', data: {behavior: :back} %>
+</div>
