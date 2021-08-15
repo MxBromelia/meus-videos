@@ -8,6 +8,9 @@
       category:
         name: Título
         description: Descrição
+      video:
+        url: URL
+        title: Título
   messages:
     models:
       category:

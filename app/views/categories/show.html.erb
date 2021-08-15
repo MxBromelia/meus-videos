@@ -1,0 +1,17 @@
+<% if notice %>
+<div class='notice' %>
+  <p><%= notice %></p>
+</div>
+<% end %>
+<h1><%=@category.name %></h1>
+<ul>
+<% if @category.videos.any? %>
+    <% @category.videos.each do |video| %>
+        <li><%= link_to video.title, video_path(video.id) %>
+    <% end %>
+<% else %>
+    Não há videos nesta Categoria
+<% end %>
+</ul>
+<%= link_to "Adicionar Vídeo", new_category_video_path(@category.id), data: {behavior: 'add-video'} %>
+<%= link_to "Editar", edit_category_path(@category) %>

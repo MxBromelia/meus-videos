@@ -2,11 +2,14 @@ require 'rails_helper'
 
 RSpec.describe "Atualizar Categoria", type: :feature do
   feature "Adding a new Category" do
-    background do
-      visit "categories/#{category.id}/edit"
-    end
+    given!(:category) { create :category }
 
-    given(:category) { create :category }
+    background do
+      visit "categories/"
+      click_link category.name
+      click_link "Editar"
+    end
+    
 
     scenario "Successfully adding a Category" do
       fill_in "Título", with: "Ruby on Rails Tutorials"
