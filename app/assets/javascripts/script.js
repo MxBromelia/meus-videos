@@ -30,3 +30,25 @@ document.addEventListener('click', ev => {
         })
     }
 })
+
+const newCommentForm = document.getElementById('new_comment')
+const commentMessage = newCommentForm.querySelector('textarea')
+const comments = document.querySelector('.comments')
+const commentsContainer = document.querySelector('.comments-container')
+const noCommentsContainer = document.querySelector('.no-comments-container')
+
+newCommentForm.addEventListener('ajax:success', (e, data, status, xhr) => {
+    const newComment = document.createElement('div')
+    newComment.classList.add('comment')
+    newComment.innerHTML = commentMessage.value
+    comments.prepend(newComment)
+    commentMessage.value = ''
+
+    if(commentsContainer.classList.contains('hidden')) {
+        commentsContainer.classList.remove('hidden')
+        noCommentsContainer.classList.add('hidden')
+    }
+})
+newCommentForm.addEventListener('ajax:error', (e, data, status, xhr) => {
+    console.log("foi naõ")
+})

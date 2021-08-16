@@ -24,3 +24,7 @@ iframe {
     border: solid 1px black;
     margin: 5px 5px 10px 15px;
 }
+
+.hidden {
+    display: none !important;
+}

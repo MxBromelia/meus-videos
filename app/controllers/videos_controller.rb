@@ -18,6 +18,8 @@ class VideosController < ApplicationController
   end
 
   def show
+    @video_comments = @video.comments.order(created_at: :desc)
+    @comment = @video.comments.build
   end
 
   def destroy
