@@ -22,11 +22,11 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: postgres
   host: localhost
-  password: <%= Rails.application.credentials[Rails.env.to_sym][:dbpassword] %>
 
 development:
   <<: *default
   database: meus-videos_development
+  password: <%= Rails.application.credentials[Rails.env.to_sym][:dbpassword] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -61,6 +61,7 @@ development:
 test:
   <<: *default
   database: meus-videos_test
+  password: <%= Rails.application.credentials[Rails.env.to_sym][:dbpassword] %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -83,6 +84,3 @@ test:
 #
 production:
   <<: *default
-  database: meus-videos_production
-  username: meus-videos
-  password: <%= ENV['MEUS-VIDEOS_DATABASE_PASSWORD'] %>
