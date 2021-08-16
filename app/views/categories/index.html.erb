@@ -7,7 +7,7 @@
   <thead>
     <tr>
       <th><%= @categories.model.human_attribute_name :name %></th>
-      <th><%= @categories.model.human_attribute_name :description %></th>
+      <th colspan=2><%= @categories.model.human_attribute_name :description %></th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +15,14 @@
     <tr>
       <td><%= link_to category.name, category_path(category) %></td>
       <td><%=category.description%></td>
+      <td>
+        <%= link_to edit_category_path(category), class: 'btn remove-category' do %>
+          <i class="bi bi-pencil-square" title='Edirar Categoria'></i>
+        <% end %>
+        <%= link_to category, method: :delete, class: 'btn edit-category', data: { confirm: "Você tem certeza?" } do %>
+          <i class="bi bi-trash" title='Remover Categoria'></i>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>

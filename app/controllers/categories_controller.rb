@@ -32,7 +32,9 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category.destroy
+    if @category.destroy
+      redirect_to categories_path
+    end
   end
 
   def bookmark
