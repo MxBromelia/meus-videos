@@ -1,11 +1,20 @@
 <h1> Categorias Favoritadas </h1>
 <% if @categories.any? %>
-    <ul>
-    <% @categories.each do |category| %>
-        <li><%= link_to category.name, category_path(category) %></li>
+<% @categories.each do |category| %>
+    <h3><%= link_to category.name, category_path(category) %></h3>
+    <div class=row>
+    <% category.videos.limit(5).each do |video| %>
+        <div class=col-md-2>
+            <%= link_to video_path(video) do %>
+                <img src=<%=video.thumbnail_url%> width=100px>
+                <p><%= video.title %></p>
+            <% end %>
+        </div>
     <% end %>
-    </ul>
-    
+    <div class=col-md-2>
+        <%= link_to "Mais Vídeos de #{category.name} >" %>
+    </div>
+<% end %>
 <% else %>
     <p> Não há Categorias Favoritadas no Momento </p>
 <% end %>

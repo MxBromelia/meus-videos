@@ -18,7 +18,9 @@
     <tbody>
     <% @category.videos.each do |video| %>
         <tr>
-            <td><%= link_to video.title, video_path(video.id) %></td>
+            <td>
+                <img src='<%= video.thumbnail_url%>' width=100px>
+                <%= link_to video.title, video_path(video.id) %></td>
             <td>
             <%= link_to video, method: :delete, class: 'btn edit-category', data: { confirm: "Você tem certeza?" } do %>
                 <i class="bi bi-trash" title='Remover Vídeo da Categoria'></i>

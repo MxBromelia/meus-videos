@@ -39,7 +39,7 @@ class CategoriesController < ApplicationController
 
   def bookmark
     if @category.update(bookmarked: params[:bookmark])
-      redirect_to category_path, status: :ok
+      redirect_to category_path
     end
   end
 

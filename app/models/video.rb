@@ -11,6 +11,10 @@ class Video < ApplicationRecord
     "https://www.youtube.com/embed/#{video_id}"
   end
 
+  def thumbnail_url
+    "https://img.youtube.com/vi/#{video_id}/mqdefault.jpg"
+  end
+
   private
 
   def extract_video_id
