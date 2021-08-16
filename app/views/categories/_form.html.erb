@@ -11,7 +11,7 @@
 <%= form_for @category do |form| %>
     <div class='mb-3 form-group'>
         <%= form.label :name, class: 'form-label' %>
-        <%= form.text_field :name, class: 'form-control' %>
+        <%= form.text_field :name, class: 'form-control', required: true%>
     </div>
 
     <div class='mb-3 form-group'>

@@ -6,14 +6,14 @@ class CommentsController < ApplicationController
     @video.comments.build(params_comment)
 
     if @video.save
-      render json: {}, status: :ok
-    else
-      render json: {}, status: :unprocessable_entity
+      redirect_to video_path(@video)
     end
   end
 
   def destroy
-    @comment.destroy
+    if @comment.destroy
+      redirect_to video_path(@video)
+    end
   end
 
   private

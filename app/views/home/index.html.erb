@@ -2,17 +2,22 @@
 <% if @categories.any? %>
 <% @categories.each do |category| %>
     <h3><%= link_to category.name, category_path(category) %></h3>
-    <div class=row>
-    <% category.videos.limit(5).each do |video| %>
+    <div class='mx-2 row'>
+    <% if category.videos.any? %>
+        <% category.videos.limit(5).each do |video| %>
+            <div class=col-md-2>
+                <%= link_to video_path(video) do %>
+                    <img src=<%=video.thumbnail_url%> width=100px>
+                    <p><%= video.title %></p>
+                <% end %>
+            </div>
+        <% end %>
         <div class=col-md-2>
-            <%= link_to video_path(video) do %>
-                <img src=<%=video.thumbnail_url%> width=100px>
-                <p><%= video.title %></p>
-            <% end %>
+            <%= link_to "Mais Vídeos de #{category.name} >", category_path(category)%>
         </div>
+    <% else %>
+        <p> Ainda não há videos nesta categoria. <%= link_to "Adicionar", new_category_video_path(category) %></p>
     <% end %>
-    <div class=col-md-2>
-        <%= link_to "Mais Vídeos de #{category.name} >" %>
     </div>
 <% end %>
 <% else %>
