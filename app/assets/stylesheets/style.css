@@ -3,9 +3,13 @@ header {
     padding: 5px 10px;
 }
 
+body {
+    height: 100%;
+}
+
 section {
     background: rgb(233, 233, 185);
-    min-height: 500px;
+    height: 100%;
 }
 
 body {
@@ -17,11 +21,14 @@ iframe {
 }
 
 .comments {
-    border: solid 1px black;
+    padding-top: 5px;
+    border-top: 2px rgb(165, 165, 136) solid;
+    border-left: 5px rgb(165, 165, 136) solid;
 }
 
 .comment {
-    border: solid 1px black;
+    padding: 3px;
+    border: solid 3px rgb(165, 165, 136);
     margin: 5px 5px 10px 15px;
 }
 
