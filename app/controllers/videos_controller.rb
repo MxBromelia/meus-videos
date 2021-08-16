@@ -23,7 +23,10 @@ class VideosController < ApplicationController
   end
 
   def destroy
-    @video.destroy
+    category = @video.category
+    if @video.destroy
+      redirect_to category_path(category)
+    end
   end
 
   private

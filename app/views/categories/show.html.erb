@@ -12,9 +12,20 @@
 </h1>
 <ul>
 <% if @category.videos.any? %>
+<table class='table'>
+    <tbody>
     <% @category.videos.each do |video| %>
-        <li><%= link_to video.title, video_path(video.id) %>
+        <tr>
+            <td><%= link_to video.title, video_path(video.id) %></td>
+            <td>
+            <%= link_to video, method: :delete, class: 'btn edit-category', data: { confirm: "Você tem certeza?" } do %>
+                <i class="bi bi-trash" title='Remover Vídeo da Categoria'></i>
+            <% end %>
+            </td>
+        </tr>
     <% end %>
+    </tbody>
+</table>
 <% else %>
     Não há videos nesta Categoria
 <% end %>
