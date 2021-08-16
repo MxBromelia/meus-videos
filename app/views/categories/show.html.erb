@@ -32,4 +32,4 @@
 </ul>
 <%= link_to "Adicionar Vídeo", new_category_video_path(@category.id), class: 'btn btn-primary', data: {behavior: 'add-video'} %>
 <%= link_to "Editar", edit_category_path(@category), class: 'btn btn-info' %>
- <%= button_tag "Voltar", type: 'button', class: 'btn btn-secondary', data: {behavior: :back} %>
+<%= link_to "Voltar", categories_path, type: 'button', class: 'btn btn-secondary' %>

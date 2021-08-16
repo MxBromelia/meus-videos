@@ -21,7 +21,10 @@
   <div class='form-group'>
     <%=form.text_area :message, placeholder: "Adicione um Comentário", class: 'form-control' %>
   </div>
-  <%= form.submit "Enviar",  class: 'btn btn-primary' %>
+  <div class=mt-2>
+    <%= form.submit "Enviar",  class: 'btn btn-primary' %>
+    <%= link_to "Voltar", video_path(@video), type: 'button', class: 'btn btn-secondary', data: {behavior: :back} %>
+  </div>
 <% end %>
 
 <div class='comments-container <%='hidden' unless @video_comments.any? %>'>
@@ -34,8 +37,4 @@
 </div>
 <div class='no-comments-container <%='hidden' if @video_comments.any? %>'>
   <p>Este vídeo não possui comentários</p>
-</div>
-
-<div class='float-end'>
-   <%= button_tag "Voltar", type: 'button', class: 'btn btn-secondary', data: {behavior: :back} %>
 </div>
