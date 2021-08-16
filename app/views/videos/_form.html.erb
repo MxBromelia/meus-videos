@@ -10,6 +10,11 @@
 <% end %>
 <%= form_for [@category, @video] do |form| %>
     <div class='mb-3 form-group'>
+        <%= form.label :category, class: 'form-label' %>
+        <%= form.text_field :category, class: 'form-control', disabled: true, value: @category.name %>
+    </div>
+
+    <div class='mb-3 form-group'>
         <%= form.label :url, class: 'form-label'%>
         <%= form.text_field :url, class: 'form-control', required: true%>
     </div>
