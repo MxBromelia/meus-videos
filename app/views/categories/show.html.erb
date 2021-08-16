@@ -5,10 +5,12 @@
 <% end %>
 <h1>
     <%=@category.name.capitalize %>
-    <i class="bi bi-star<%=@category.bookmarked ? "-fill" : ""%>"
-       data-behavior=bookmark
-       data-id=<%=@category.id%>
-    ></i>
+    <%= link_to bookmark_category_path(bookmark: !@category.bookmarked), class: 'bookmark', method: :patch do %>
+        <i
+            class="bi bi-star<%=@category.bookmarked ? "-fill" : ""%>"
+            title="<%=!@category.bookmarked ? "Adicionar aos Favoritos" : "Favorito" %>"
+        ></i>
+    <% end %>
 </h1>
 <ul>
 <% if @category.videos.any? %>

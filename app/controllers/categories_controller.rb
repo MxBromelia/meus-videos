@@ -38,7 +38,9 @@ class CategoriesController < ApplicationController
   end
 
   def bookmark
-    @category.update(bookmarked: params[:bookmark])
+    if @category.update(bookmarked: params[:bookmark])
+      redirect_to category_path, status: :ok
+    end
   end
 
   private

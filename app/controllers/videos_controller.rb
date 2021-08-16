@@ -25,7 +25,7 @@ class VideosController < ApplicationController
   def destroy
     category = @video.category
     if @video.destroy
-      redirect_to category_path(category)
+      redirect_to category_path(category), status: :ok
     end
   end
 
