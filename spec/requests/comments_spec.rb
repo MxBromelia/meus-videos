@@ -13,7 +13,7 @@ RSpec.describe "Comments", type: :request do
 
       post "/videos/#{video_id}/comments", params: valid_attributes, headers: headers
 
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:found)
     }
   end
 
@@ -22,7 +22,7 @@ RSpec.describe "Comments", type: :request do
       delete "/comments/#{id}"
     end
     it "returns an ok status" do
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:found)
     end
 
     it "removes a comment" do

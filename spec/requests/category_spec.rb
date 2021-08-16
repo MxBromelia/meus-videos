@@ -29,7 +29,7 @@ RSpec.describe "Categories", type: :request do
     it 'bookmarks a category' do
       patch "/categories/#{id}/bookmark", params: {bookmark: true}
 
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:found)
       expect(category.reload.bookmarked).to eq(true)
     end
 
@@ -37,7 +37,7 @@ RSpec.describe "Categories", type: :request do
       category.update(bookmarked: true)
       patch "/categories/#{id}/bookmark", params: {bookmark: false}
 
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:found)
       expect(category.reload.bookmarked).to eq(false)
     end
   end

@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @video = @comment.video
     if @comment.destroy
       redirect_to video_path(@video)
     end
